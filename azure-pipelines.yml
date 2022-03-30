@@ -4,7 +4,8 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/android
 
 pool:
-  vmImage: 'macOS-10.13'
+  name: Gohan
+  vmImage: 'ubuntu-latest'
 
 steps:
 - task: Gradle@2
