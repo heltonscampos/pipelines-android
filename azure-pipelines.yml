@@ -25,7 +25,6 @@ steps:
       echo JAVA_HOME_8_x86=$JAVA_HOME_8_x86
       echo JAVA_HOME=$JAVA_HOME
       export JAVA_HOME_8_X86=/etc/alternatives/jre_1.8.0_openjdk/
-      javac
 - task: Gradle@2
   inputs:
     workingDirectory: '' #alterar a workdir, aqui é a pasta raiz
