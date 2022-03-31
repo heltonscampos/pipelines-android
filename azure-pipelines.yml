@@ -9,9 +9,19 @@ pool:
 
 steps:
 - script: |
-    echo "##vso[task.setvariable variable=JAVA_HOME]$(JAVA_HOME_11_X64)"
-    echo "##vso[task.setvariable variable=PATH]$(JAVA_HOME_11_X64)/bin:$(PATH)"
+    which java
+    java -version
+    echo JAVA_HOME_8_x86=$JAVA_HOME_8_x86
+    echo JAVA_HOME=$JAVA_HOME
+    export JAVA_HOME_8_X86=/etc/alternatives/jre_1.8.0_openjdk/
+    javac
   displayName: "Set java version"
+
+- task: JavaToolInstaller@0
+  inputs:
+    versionSpec: '8'
+    jdkArchitectureOption: 'x86'
+    jdkSourceOption: 'PreInstalled'
 - task: Gradle@2
   inputs:
     workingDirectory: '' #alterar a workdir, aqui é a pasta raiz
